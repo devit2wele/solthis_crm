@@ -123,6 +123,7 @@ class Don(models.Model):
     _inherit = ['mail.thread']
     _description = 'Dons'
 
+    @api.depends('type_don', 'entitee_receptrice', 'moyen_paiment')
     def _compute_send_rf(self):
         for res in self:
             if res.type_don in ['ir', 'is'] and res.entitee_receptrice == 'asso' and res.moyen_paiment == 'cheque':
