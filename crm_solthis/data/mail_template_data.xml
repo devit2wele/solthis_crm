@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Email template -->
+        <record id="email_template_edi_recu_fiscal_ponctuel" model="mail.template">
+            <field name="name">Recu Fiscal - Send by Email</field>
+            <field name="email_from">devit2@alima.ngo</field>
+            <field name="email_to">devit2@alima.ngo</field>
+            <field name="subject">Recu Fiscal</field>
+            <field name="model_id" ref="crm_solthis.model_crm_alima_don"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="report_recu_fiscal_ponctuel"/>
+            <field name="report_name">recu_fiscal</field>
+            <field name="body_html"><![CDATA[
+
+<p>Bonjour Mr Wele, je vous envoie ton recu fiscal du mois et vous en souhaite une bonne réception.</p>
+]]></field>
+        </record>
+
+
+    </data>
+</odoo>

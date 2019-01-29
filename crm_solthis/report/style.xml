@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="minimal_layout_inherit" inherit_id="report.minimal_layout">
+	      <xpath expr="//head" position="inside">
+	            <link rel='stylesheet' href="/crm_alima/static/src/css/bootstrap.css"/>
+	      </xpath>
+	</template>
+</odoo>

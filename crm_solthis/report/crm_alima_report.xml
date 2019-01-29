@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<report 
+	    string="Recu fiscal Ponctuel" 
+	    id="report_recu_fiscal_ponctuel" 
+	    model="crm.alima.don" 
+	    report_type="qweb-pdf"
+	    menu="True"
+	    name="crm_solthis.report_recufiscalponctuel" 
+	    file="crm_solthis.report_recufiscalponctuel"
+	/>
+	<report 
+	    string="Recu fiscal Regulier" 
+	    id="report_recu_fiscal_regulier" 
+	    model="crm.alima.donateur" 
+	    report_type="qweb-pdf"
+	    menu="True"
+	    name="crm_solthis.report_recufiscalregulier" 
+	    file="crm_solthis.report_recufiscalregulier"
+	/>
+</odoo>
