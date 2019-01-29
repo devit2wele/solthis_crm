@@ -16,14 +16,6 @@ class RecuFiscalRegulier(models.TransientModel):
                 'date_from': self.date_from,
                 'date_to': self.date_to,
             })
-            # return {
-            #     'type': 'ir.actions.report.xml',
-            #     'report_name': 'crm_alima.report_recufiscalregulier',    # the 'Service Name' from the report
-            #     'datas' : {
-            #         'model' : 'crm.alima.donateur',    # Report Model
-            #         'res_ids' : [donateur_id]
-            #     }
-            # }
             return self.env['report'].get_action(donateur, 'crm_alima.report_recufiscalregulier')
 
         return {

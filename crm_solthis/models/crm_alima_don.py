@@ -217,7 +217,6 @@ class Don(models.Model):
     @api.model
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
-        print 'in create don'
         res= super(Don, self).create(vals)
         res.montantEurSave= res.montantEur
         rec = res.donateur
@@ -392,7 +391,6 @@ class Don(models.Model):
 
     @api.multi
     def write(self, vals):
-        print 'in write don'
         montantEurSave = self.montantEur
         rep  =  super(Don, self).write(vals)
         res = self

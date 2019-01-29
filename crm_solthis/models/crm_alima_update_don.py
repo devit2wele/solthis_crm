@@ -38,14 +38,11 @@ class UpdateDon(models.Model):
             separator = CORRESPONDANCE[self.separator]
             liste_data = [cell.split(separator) for cell in data.replace('\r', '').replace('"','').split("\n")]
             liste_data_remove_space = [[cell.strip() for cell in line] for line in liste_data]
-            print 'liste data remove space', liste_data_remove_space
             dicos = self.fusion(liste_data_remove_space)
-            print 'dicos', dicos
             #except:
                 #raise UserError(_("Erreur, vérifier le séparateur et le fichier chargé"))
             for line in dicos:
                 dons.append((0, 0, line))
-            print "dons", dons
             self.update_don_line = dons
         else:
             self.update_don_line = False
@@ -120,9 +117,7 @@ class UpdateDon(models.Model):
                         date = dicos[i][key].split(' ')[0].split('-')
                         date[0], date[2] = date[2], date[0]
                         dicos[i][key] = '-'.join(date)
-        
         for dico in dicos:
-            print 'dico', dico
             dico['id_don'] = dico.pop('id')
 
         return dicos

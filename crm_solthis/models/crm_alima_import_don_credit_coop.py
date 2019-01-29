@@ -156,16 +156,13 @@ class IMPORTDONCREDITCOOP(models.Model):
             separator = CORRESPONDANCE[self.separator]
             liste_data = [cell.split(separator) for cell in data.replace('\r', '').replace('"','').split("\n")]
             liste_data_remove_space = [[cell.strip() for cell in line] for line in liste_data]
-            print 'liste data remove space', liste_data_remove_space
             dicos = self.fusion(liste_data_remove_space)
-            print 'dicos', dicos
             #except:
             #    raise UserError(_("Erreur d'import, vérifier le séparateur et le fichier chargé"))
             for line in dicos:
                 if 'donateur' not in line:
                     continue
                 dons.append((0, 0, line))
-            print "dons", dons
             self.don_credit_coop_line = dons
         else:
             self.don_credit_coop_line = False
@@ -206,7 +203,6 @@ class IMPORTDONCREDITCOOP(models.Model):
         for i in range(1,len(liste)):
             dicos.append(dict(zip(liste[0], liste[i])))
         for i in range(len(dicos)):
-            print 'testttttttttt dico', dicos[i]
             for key in dicos[i]:
                 dicos[i][key] = GET_KEY[dicos[i][key]] if dicos[i][key] in GET_KEY else dicos[i][key]
                 if key == 'montantEur':

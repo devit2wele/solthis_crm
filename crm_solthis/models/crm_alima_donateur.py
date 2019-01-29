@@ -581,7 +581,6 @@ class Donateur(models.Model):
         for rec in self:
             if rec.dateDernierDon:
                 diff= datetime.strptime(fields.Date.today(), tools.DEFAULT_SERVER_DATE_FORMAT) - datetime.strptime(rec.dateDernierDon, tools.DEFAULT_SERVER_DATE_FORMAT)
-                print diff.days
                 if diff.days < 365:
                     rec.recence='Actif'
                 elif diff.days > 365 and diff.days < 730:

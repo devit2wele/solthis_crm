@@ -62,16 +62,13 @@ class IMPORTENGAGEMENT(models.Model):
 	            separator = CORRESPONDANCE[self.separator]
 	            liste_data = [cell.split(separator) for cell in data.replace('\r', '').replace('"','').split("\n")]
 	            liste_data_remove_space = [[cell.strip() for cell in line] for line in liste_data]
-	            print 'liste data remove space', liste_data_remove_space
 	            dicos = self.fusion(liste_data_remove_space)
-	            print 'dicos', dicos
             except:
                 raise UserError(_("Erreur d'import, vérifier le séparateur et le fichier chargé"))
             for line in dicos:
                 if 'donateur' not in line:
                     continue
                 engagements.append((0, 0, line))
-            print "engagements", engagements
             self.engagement_line = engagements
         else:
             self.engagement_line = False
