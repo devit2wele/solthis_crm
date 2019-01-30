@@ -178,42 +178,44 @@ class Don(models.Model):
 
     @api.multi
     def action_send_rf(self):
-        self.ensure_one()
+        pass
+        # self.ensure_one()
             
-        ir_model_data = self.env['ir.model.data']
+        # ir_model_data = self.env['ir.model.data']
         
-        try:
-            template_id = ir_model_data.get_object_reference('crm_solthis', 'email_template_edi_recu_fiscal_ponctuel')[1]
-        except ValueError:
-            template_id = False
-        try:
-            compose_form_id = ir_model_data.get_object_reference('mail', 'email_compose_message_wizard_form')[1]
-        except ValueError:
-            compose_form_id = False
-        ctx = dict(self.env.context or {})
-        ctx.update({
-            'default_model': 'crm.alima.don',
-            'default_res_id': self.ids[0],
-            'default_use_template': bool(template_id),
-            'default_template_id': template_id,
-            'default_composition_mode': 'comment',
-        })
+        # try:
+        #     template_id = ir_model_data.get_object_reference('crm_solthis', 'email_template_edi_recu_fiscal_ponctuel')[1]
+        # except ValueError:
+        #     template_id = False
+        # try:
+        #     compose_form_id = ir_model_data.get_object_reference('mail', 'email_compose_message_wizard_form')[1]
+        # except ValueError:
+        #     compose_form_id = False
+        # ctx = dict(self.env.context or {})
+        # ctx.update({
+        #     'default_model': 'crm.alima.don',
+        #     'default_res_id': self.ids[0],
+        #     'default_use_template': bool(template_id),
+        #     'default_template_id': template_id,
+        #     'default_composition_mode': 'comment',
+        # })
         
-        return {
-            'name': _('Compose Email'),
-            'type': 'ir.actions.act_window',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'mail.compose.message',
-            'views': [(compose_form_id, 'form')],
-            'view_id': compose_form_id,
-            'target': 'new',
-            'context': ctx,
-        }
+        # return {
+        #     'name': _('Compose Email'),
+        #     'type': 'ir.actions.act_window',
+        #     'view_type': 'form',
+        #     'view_mode': 'form',
+        #     'res_model': 'mail.compose.message',
+        #     'views': [(compose_form_id, 'form')],
+        #     'view_id': compose_form_id,
+        #     'target': 'new',
+        #     'context': ctx,
+        # }
 
     @api.multi
     def action_print_rf(self):
-        return self.env['report'].get_action(self, 'crm_solthis.report_recufiscalponctuel')
+        pass
+        # return self.env['report'].get_action(self, 'crm_solthis.report_recufiscalponctuel')
 
     @api.model
     @api.returns('self', lambda value: value.id)

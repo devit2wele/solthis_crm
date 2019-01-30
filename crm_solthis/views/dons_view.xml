@@ -28,14 +28,14 @@
                         name="action_send_rf" 
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible':[('mode_versement','=','avec prelevement')]}"
+                        attrs="{'invisible':[('send_rf','=',False)]}"
                     />
                     <button 
                         string="Imprimer le recu fiscal"
                         name="action_print_rf" 
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible':[('mode_versement','=','avec prelevement')]}"
+                        attrs="{'invisible':[('send_rf','=',False)]}"
                     />
                 </header>
                 <sheet>

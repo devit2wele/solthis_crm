@@ -625,18 +625,19 @@ class Donateur(models.Model):
 
     @api.multi
     def action_recu_fiscal_regulier_form_views(self):
-        action_context = {'donateur': self.id}
-        return {
-            'name': 'crm.alima.recu.fiscal.regulier.template.form',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'view_id': False,
-            'res_model': 'crm.alima.recu.fiscal.regulier.template',
-            'context': action_context,
-            'type': 'ir.actions.act_window',
-            'nodestroy': False,
-            'target': 'new',
-        }
+        pass
+        # action_context = {'donateur': self.id}
+        # return {
+        #     'name': 'crm.alima.recu.fiscal.regulier.template.form',
+        #     'view_type': 'form',
+        #     'view_mode': 'form',
+        #     'view_id': False,
+        #     'res_model': 'crm.alima.recu.fiscal.regulier.template',
+        #     'context': action_context,
+        #     'type': 'ir.actions.act_window',
+        #     'nodestroy': False,
+        #     'target': 'new',
+        # }
 
     def correction_nom_prenom(self):
         all_donateurs = self.env['crm.alima.donateur'].search([])
